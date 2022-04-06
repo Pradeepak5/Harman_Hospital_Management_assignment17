@@ -86,20 +86,9 @@ def search_patient():
 @hospital.route("/delete",methods = ["GET","POST"])
 def delete_patient():
     if request.method == "POST":
-        getname = request.form["name"]
         getmobnumber = request.form["mobnumber"]
-        getage = request.form["age"]
-        getaddress = request.form["address"]
-        getdob = request.form["dob"]
-        getplace = request.form["place"]
-        getpincode = request.form["pincode"]
-        print(getname)
         print(getmobnumber)
-        print(getage)
-        print(getaddress)
-        print(getdob)
-        print(getplace)
-        print(getpincode)
+
 
         try:
             connection.execute("delete from patient where mobnumber="+getmobnumber)
