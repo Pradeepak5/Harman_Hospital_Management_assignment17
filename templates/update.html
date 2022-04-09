@@ -20,7 +20,7 @@
                 <a class="nav-link active" aria-current="page" href="/search">Search</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/update">Edit</a>
+                <a class="nav-link" href="/updatesearch">Edit</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/delete">Delete</a>
@@ -35,41 +35,58 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form action="/update" method="post">
+                <form action="/updatesearch" method="post">
                     <table class="table">
                         <tr>
                             <td>Mobile Number</td>
                             <td> <input type="number" name="mobnumber" class="form-control"> </td>
                         </tr>
                         <tr>
+                          <td></td>
+                          <td> <button type="submit" class="btn btn-primary">Search</button> </td>
+                      </tr>
+
+                      </table>
+                      </form>
+                      <form action="/update" method="post">
+                      {% for i in searchpatient %}
+                      
+                      <table class="table">
+
+                        <tr>
                             <td>Name</td>
-                            <td> <input type="text" name="name" class="form-control"> </td>
+                            <td> <input value={{i[1]}} type="text" name="name" class="form-control"> </td>
                         </tr>
                         <tr>
+                          <td>Mobile number</td>
+                          <td> <input readonly value={{i[2]}} type="text" name="mobnumber" class="form-control"> </td>
+                      </tr>
+                        <tr>
                             <td>Age</td>
-                            <td> <input type="number" name="age" class="form-control"> </td>
+                            <td> <input value={{i[3]}} type="number" name="age" class="form-control"> </td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td> <input type="text" name="address" class="form-control"> </td>
+                            <td> <input value={{i[4]}} type="text" name="address" class="form-control"> </td>
                         </tr>
                         <tr>
                             <td>DOB</td>
-                            <td> <input type="date" name="dob" class="form-control"> </td>
+                            <td> <input value={{i[5]}} type="date" name="dob" class="form-control"> </td>
                         </tr>
                         <tr>
                             <td>Place</td>
-                            <td> <input type="text" name="place" class="form-control"> </td>
+                            <td> <input value={{i[6]}} type="text" name="place" class="form-control"> </td>
                         </tr>
                         <tr>
                             <td>Pincode</td>
-                            <td> <input type="number" name="pincode" class="form-control"> </td>
+                            <td> <input value={{i[7]}} type="number" name="pincode" class="form-control"> </td>
                         </tr>
                         <tr>
                             <td></td>
                             <td><button type="submit" class="btn btn-primary">Update</button></td>
                         </tr>
                     </table>
+                    {% endfor %}
                 </form>
             </div>
         </div>
